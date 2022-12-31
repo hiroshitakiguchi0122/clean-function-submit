@@ -29,7 +29,7 @@ function getSendData() {
   // POST送信する際のデータを定義
   return (sendData = {
     title: inputTitle,
-    body: inputBody
+    body: inputBody,
   });
 }
 
@@ -37,7 +37,7 @@ async function sendPostMethod(url, sendData) {
   // POST送信をしている
   const response = await fetch(url, {
     method: "POST",
-    body: JSON.stringify(sendData)
+    body: JSON.stringify(sendData),
   });
 
   // HTTPステータスコードが200番代以外の場合はエラーを発生させる
@@ -47,3 +47,8 @@ async function sendPostMethod(url, sendData) {
 
   return await response.json();
 }
+
+// 関数を小さくすることで様々なメリットがあります。
+// 1. 汎用性を持たせることができる
+// 2. 影響範囲を限定することができる
+// 3. 人のコードを読む際の負担を減らすことができる
